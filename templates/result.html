@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+		<title>Result</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- <link rel="stylesheet" href="../static/styles/main.css" /> -->
+        <!-- <link rel="stylesheet" href="{{url_for('static',filename='styles/main.css')}}" /> -->
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="style3.css">
+
+        <script>
+            window.onload = init;
+            function init(){
+                var sim = getUrlVars()["sim"];
+                var img = getUrlVars()["img"];
+                var img2 = getUrlVars()["img2"];
+
+                console.log(sim+" "+img+"  "+img2)
+
+                img = "https://30hacks1.s3.ap-south-1.amazonaws.com/"+img;
+                img2 = "https://30hacks1.s3.ap-south-1.amazonaws.com/"+img2;
+
+                var div1 = document.getElementById("img1");
+                var div2 = document.getElementById("img2");
+
+                div1.src = img;
+                div2.src = img2;
+
+                var pbar = document.querySelector('.jquery');
+                pbar.style.width = sim+"%"
+
+            }
+            function getUrlVars() {
+                var vars = {};
+                var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+                vars[key] = value;
+                });
+                return vars;
+            }
+        </script>
+        <style>
+
+            .similarity{
+                height: 300px;
+            }
+
+            .text1{
+                width: 100%;
+                text-align: center;
+            }
+            
+
+            #skill { 
+                list-style: none;
+                font: 12px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+                width: 296px;
+                margin: 50px auto 0;
+                position: relative;
+                line-height: 2em;
+                padding: 30px 0;
+            }
+
+            #skill li { 
+                margin-bottom:50px; 
+                background:#e9e5e2;
+                background-image: -webkit-gradient(linear, left top, left bottom, from(#e1ddd9), to(#e9e5e2));
+                background-image: -webkit-linear-gradient(top, #e1ddd9, #e9e5e2);
+                background-image: -moz-linear-gradient(top, #e1ddd9, #e9e5e2);
+                background-image: -ms-linear-gradient(top, #e1ddd9, #e9e5e2);
+                background-image: -o-linear-gradient(top, #e1ddd9, #e9e5e2);
+                background-image: linear-gradient(top, #e1ddd9, #e9e5e2);  
+                height:20px; 
+                border-radius:10px; 
+                -moz-box-shadow: 0 1px 0px #bebbb9 inset, 0 1px 0 #fcfcfc;	 
+                -webkit-box-shadow: 0 1px 0px #bebbb9 inset, 0 1px 0 #fcfcfc;	 
+                box-shadow: 0 1px 0px #bebbb9 inset, 0 1px 0 #fcfcfc;	  
+            }
+
+            #skill li h3 { 
+                position:relative; 
+                top:-25px;
+            }
+
+            .bar { 
+                height:18px; 
+                margin:1px 2px;  
+                position:absolute;
+                border-radius:10px;
+                -moz-box-shadow: 0 1px 0px #fcfcfc inset, 0 1px 0 #bebbb9;
+                -webkit-box-shadow: 0 1px 0px #fcfcfc inset, 0 1px 0 #bebbb9;	 
+                box-shadow: 0 1px 0px #fcfcfc inset, 0 1px 0 #bebbb9;		
+            }
+
+
+
+            .jquery {
+                -moz-animation:jquery 2s ease-out;
+                -webkit-animation:jquery 2s ease-out;
+                background-color: #a1ce5b;
+                background-image: -webkit-gradient(linear, left top, left bottom, from(#a1ce5b), to(#91ba52));
+                background-image: -webkit-linear-gradient(top, #a1ce5b, #91ba52);
+                background-image: -moz-linear-gradient(top, #a1ce5b, #91ba52);
+                background-image: -ms-linear-gradient(top, #a1ce5b, #91ba52);
+                background-image: -o-linear-gradient(top, #a1ce5b, #91ba52);
+                background-image: linear-gradient(top, #a1ce5b, #91ba52);
+            }
+
+            .button {
+                background-color: #4CAF50;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+
+            .homeButton{
+                margin: 0 45%;
+                
+            }
+
+            #about{
+                text-align: center;
+            }
+
+            img{
+                transform: rotate(90deg);
+            }
+
+            @-moz-keyframes jquery      { 0%  { width:0px;} 100%{ width:80%;}  }
+            @-webkit-keyframes jquery      { 0%  { width:0px;} 100%{ width:80%;}  }
+            
+
+        </style>
+        
+
+	</head>
+    <body>
+    <!-- About Section -->
+    <div class="w3-container w3-padding-32" id="about">
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Results</h3>
+        <p>Photo uploaded successfully. Face Match found.</p>
+    </div>
+
+    <div class="w3-row-padding">
+        <div class="w3-col l3 m6 w3-margin-bottom">
+            <img src="" id="img1" alt="John" style="width:100%">
+        </div>
+        <div class="w3-col l6 m6 w3-margin-bottom similarity">
+                <ul id="skill">
+                    <li><span class="bar jquery"></span><h3>Similarity <b>{{sim}}%</b> </h3></li>
+                </ul>
+                <div class="text1">
+                    <p>Repoter has been informed.</p> <p>Expect a call soon.</p>
+                </div>
+        </div>
+        <div class="w3-col l3 m6 w3-margin-bottom" >
+            <img src="" id="img2"  alt="Dan" style="width:100%">
+            
+        </div>
+    </div>
+
+    <div class="w3-row-padding homeButton">
+        <a href="../home" class="button">HOME</a>
+    </div>
+    
+
+    
+
+    </body>
+    </html>

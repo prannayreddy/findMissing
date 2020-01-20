@@ -1,0 +1,135 @@
+<!--
+Author: Colorlib
+Author URL: https://colorlib.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Fill up the details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script
+        type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Custom Theme files -->
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style2.css') }}">
+    <!-- //Custom Theme files -->
+    <!-- web font -->
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+    <!-- //web font -->
+
+    <style>
+        .loading-example { 
+                margin: auto;
+                border: 16px solid #f3f3f3;  
+                border-radius: 50%;  
+                border-top: 16px solid #0087FF;  
+                border-bottom: 16px solid #FF6100;  
+                width: 120px;  
+                height: 120px;  
+                -webkit-animation: spin 2s linear infinite;  
+                animation: spin 2s linear infinite;  
+                display: none;
+                position: absolute;
+                top:40%;
+                left: 45%;
+                transform: translate(-50%,-50%);
+            
+            }  
+        
+            @-webkit-keyframes spin {  
+                0% { -webkit-transform: rotate(0deg); }  
+                100% { -webkit-transform: rotate(360deg); }  
+            }  
+            
+            @keyframes spin {  
+                0% { transform: rotate(0deg); }  
+                100% { transform: rotate(360deg); }  
+            } 
+
+            @media (max-width: 768px){
+                .loading-example { 
+                margin: auto;
+                border: 16px solid #f3f3f3;  
+                border-radius: 50%;  
+                border-top: 16px solid #0087FF;  
+                border-bottom: 16px solid #FF6100;  
+                width: 120px;  
+                height: 120px;  
+                -webkit-animation: spin 2s linear infinite;  
+                animation: spin 2s linear infinite;  
+                position: absolute;
+                top:40%;
+                left: 30%!important;
+                transform: translate(-50%,-50%);
+            
+            }  
+            }
+    </style>
+</head>
+
+<body class="bg_color1">
+    <!-- main -->
+    <div class="main-w3layouts wrapper">
+        
+
+    <!-- //for child's info -->
+    
+        <div class="main-agileinfo">
+            <div class="agileits-top">
+                <form action="{{url_for('parentLogin')}}" method="post" id="form" enctype="multipart/form-data">
+                        <h1>Your Info</h1>
+                        <input class="text" type="text" name="pname" value="Sriram" placeholder="Name" required="">
+                        <input class="text email" type="email"  name="pemail" value="Sriram@gmail.com" placeholder="Email"required="" >
+                        <input class="text" type="text" name="pphone"  placeholder="Phone" required="" >
+                        <br><br>
+                        <h1>Missing Guest's Info</h1>
+                    <input class="text" type="text" name="cname" value="Nitesh" placeholder="Guest Name" required="">
+                    <input class="text email" type="text" name="cage" value="40" placeholder="Age" required="" >
+                    <!-- <input class="text" type="text" name="cgender"  placeholder="Gender" required="" > -->
+                    <select class="text" name="cgender" >
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="others">Others</option>
+                    </select>
+
+                    <input class="text email" type="file" name="file"   />
+
+
+                    <input type="submit" id="submit" value="SUBMIT">
+                </form>
+
+            </div>
+        </div>
+
+        <ul class="colorlib-bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <!-- //main -->
+    <div id="ani" class="loading-example"> </div>  
+
+    <script>
+        var sub = document.getElementById("submit");
+        sub.addEventListener("click", function(){
+        console.log("test");
+        var animation = document.getElementById("ani");
+        animation.style.display = "block";
+        var form = document.getElementById("form");
+        form.style.filter = "blur(2px)";
+    });
+    </script>
+</body>
+
+</html>
