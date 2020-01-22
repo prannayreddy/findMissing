@@ -1,9 +1,10 @@
 # Find Missing Person
+
+## All the Python code remains in the main.py file.
+
 This Application is made through Flask. So please ensure you know how to create a flask app(YouTube).
 
 I have uploaded the static & templates folder for the front-end UI design.
-
-All the Python code remains in the main.py file.
 
 Have your AWS, MongoDb & Message91 Auth Keys in hand for ease implementation.
 
